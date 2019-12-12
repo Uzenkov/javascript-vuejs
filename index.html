@@ -12,8 +12,10 @@
 </head>
 <body>
     <div id="app" v-cloak>
-        <user-list v-bind:list="users" v-on:edit-user="editUserEvent"></user-list>
-        <edit-user v-if="user" v-bind:user="user"></edit-user>
+        <div class="container">
+            <user-list v-bind:list="users" v-on:edit-user="editUserEvent"></user-list>
+            <edit-user v-if="user" v-bind:user="user" v-on:edit-cancel="user = null"></edit-user>
+        </div>
     </div>
 
     <template id="user-list">
@@ -36,9 +38,18 @@
     </template>
 
     <template id="edit-user">
-        <div>
-            {{ user }}
-        </div>
+        <form>
+            <div class="form-group">
+                <label for="lastName">Фамилия</label>
+                <input type="text" class="form-control" id="lastName" v-bind:value="user.lastName">
+            </div>
+            <div class="form-group">
+                <label for="firstName">Имя</label>
+                <input type="text" class="form-control" id="firstName" v-bind:value="user.firstName">
+            </div>
+            <button type="submit" class="btn btn-primary">Обновить</button>
+            <button type="button" class="btn btn-warning" v-on:click="$emit('edit-cancel')">Отмена</button>
+        </form>
     </template>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -54,7 +65,7 @@
             },
             methods: {
                 editUser: function (user) {
-                    this.$emit('edit-user', user)
+                    this.$emit("edit-user", user)
                 }
             },
             mounted() {
