@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ДЗ №2</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <user-list v-bind:list="users" v-on:edit-user="editUserEvent"></user-list>
+    </div>
+
+    <template id="user-list">
+        <table class="table">
+            <thead>
+                <th>ID</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Действия</th>
+            </thead>
+            <tbody>
+                <tr v-for="user in list" v-bind:key="user.id">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td><button class="btn btn-sm btn-primary" v-on:click="editUser(user)">Редактировать</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+    <template id="edit-user">
+        <div>
+            {{ user }}
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var UserList = {
+            name: "user-list",
+            template: "#user-list",
+            props: {
+                list: {
+                    type: Array,
+                    required: true
+                }
+            },
+            methods: {
+                editUser: function (user) {
+                    this.$emit('edit-user', user)
+                }
+            },
+            mounted() {
+                console.log("UserList mounted()")
+            }
+        }
+
+        new Vue({
+            el: "#app",
+            components: {
+                'user-list': UserList,
+            },
+            data: function () {
+                return {
+                    users: [],
+                }
+            },
+            methods: {
+                fetchUsers: function () {
+                    this.users = [
+                        {
+                            id: 1,
+                            lastName: "Артёмов",
+                            firstName: "Артём",
+                        },
+                        {
+                            id: 2,
+                            lastName: "Михайлов",
+                            firstName: "Михаил",
+                        },
+                        {
+                            id: 3,
+                            lastName: "Максимов",
+                            firstName: "Максим",
+                        },
+                        {
+                            id: 4,
+                            lastName: "Романов",
+                            firstName: "Роман",
+                        },
+                        {
+                            id: 5,
+                            lastName: "Иванов",
+                            firstName: "Иван",
+                        },
+                    ]
+                },
+                editUserEvent: function(user) {
+                    console.log(user)
+                }
+            },
+            mounted() {
+                this.fetchUsers()
+            }
+        })
+    </script>
+</body>
+</html>
