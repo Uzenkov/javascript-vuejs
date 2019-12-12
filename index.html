@@ -13,6 +13,7 @@
 <body>
     <div id="app" v-cloak>
         <user-list v-bind:list="users" v-on:edit-user="editUserEvent"></user-list>
+        <edit-user v-if="user" v-bind:user="user"></edit-user>
     </div>
 
     <template id="user-list">
@@ -61,13 +62,26 @@
             }
         }
 
+        var EditUser = {
+            name: "edit-user",
+            template: "#edit-user",
+            props: {
+                user: {
+                    type: Object,
+                    required: true
+                }
+            },
+        }
+
         new Vue({
             el: "#app",
             components: {
                 'user-list': UserList,
+                'edit-user': EditUser,
             },
             data: function () {
                 return {
+                    user: null,
                     users: [],
                 }
             },
@@ -102,7 +116,7 @@
                     ]
                 },
                 editUserEvent: function(user) {
-                    console.log(user)
+                    this.user = user
                 }
             },
             mounted() {
