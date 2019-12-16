@@ -29,6 +29,10 @@ export default {
     users: []
   }),
 
+  created() {
+    setTimeout(() => this.fetchUsers(), 500);
+  },
+
   methods: {
     fetchUsers() {
       axios
@@ -38,10 +42,6 @@ export default {
           throw error;
         });
     }
-  },
-
-  created() {
-    setTimeout(() => this.fetchUsers(), 1000);
   }
 };
 </script>

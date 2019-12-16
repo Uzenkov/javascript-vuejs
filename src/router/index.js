@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Home from "@/modules/home/pages/Home.vue";
-import Users from "@/modules/users/pages/Users.vue";
+import Home from "@/modules/home/pages/HomePage.vue";
+import Users from "@/modules/users/pages/UsersPage.vue";
 
 Vue.use(VueRouter);
 
@@ -17,7 +17,7 @@ const routes = [
   },
   {
     path: "/users/:id",
-    component: () => import("@/modules/users/components/UserEdit.vue")
+    component: () => import("@/modules/users/pages/UserEditPage.vue")
   }
 ];
 

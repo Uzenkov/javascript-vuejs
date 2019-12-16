@@ -11,20 +11,29 @@
       Загрузка…
     </div>
     <div v-else>
-      {{ user }}
+      <user-edit-form :user="user" />
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import UserEditForm from "../components/UserEditForm";
 
 export default {
-  name: "UserEdit",
+  name: "UserEditPage",
+
+  components: {
+    UserEditForm
+  },
 
   data: () => ({
     user: null
   }),
+
+  created() {
+    setTimeout(() => this.getUser(this.$route.params.id), 500);
+  },
 
   methods: {
     getUser(id) {
@@ -35,10 +44,6 @@ export default {
           throw error;
         });
     }
-  },
-
-  created() {
-    setTimeout(() => this.getUser(this.$route.params.id), 1000);
   }
 };
 </script>
