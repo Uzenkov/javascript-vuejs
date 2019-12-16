@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 0,
-      "isActive": false,
+      "isActive": true,
       "accessLevel": "user",
       "firstName": "Cherry",
       "lastName": "Mejia",
