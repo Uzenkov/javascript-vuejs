@@ -1,0 +1,164 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "isActive": false,
+      "accessLevel": "user",
+      "firstName": "Cherry",
+      "lastName": "Mejia",
+      "email": "cherry@mejia.io"
+    },
+    {
+      "id": 1,
+      "isActive": false,
+      "accessLevel": "user",
+      "firstName": "Elena",
+      "lastName": "Rojas",
+      "email": "elena@rojas.co.uk"
+    },
+    {
+      "id": 2,
+      "isActive": false,
+      "accessLevel": "user",
+      "firstName": "Gabrielle",
+      "lastName": "Jensen",
+      "email": "gabrielle@jensen.tv"
+    },
+    {
+      "id": 3,
+      "isActive": false,
+      "accessLevel": "guest",
+      "firstName": "Glenna",
+      "lastName": "Gillespie",
+      "email": "glenna@gillespie.org"
+    },
+    {
+      "id": 4,
+      "isActive": false,
+      "accessLevel": "admin",
+      "firstName": "Katina",
+      "lastName": "Key",
+      "email": "katina@key.name"
+    },
+    {
+      "id": 5,
+      "isActive": true,
+      "accessLevel": "user",
+      "firstName": "Carissa",
+      "lastName": "Rollins",
+      "email": "carissa@rollins.me"
+    },
+    {
+      "id": 6,
+      "isActive": true,
+      "accessLevel": "user",
+      "firstName": "Christian",
+      "lastName": "Williamson",
+      "email": "christian@williamson.biz"
+    },
+    {
+      "id": 7,
+      "isActive": false,
+      "accessLevel": "admin",
+      "firstName": "Parker",
+      "lastName": "Hurley",
+      "email": "parker@hurley.info"
+    },
+    {
+      "id": 8,
+      "isActive": false,
+      "accessLevel": "admin",
+      "firstName": "Best",
+      "lastName": "Gibbs",
+      "email": "best@gibbs.com"
+    },
+    {
+      "id": 9,
+      "isActive": false,
+      "accessLevel": "guest",
+      "firstName": "Louise",
+      "lastName": "Green",
+      "email": "louise@green.biz"
+    },
+    {
+      "id": 10,
+      "isActive": true,
+      "accessLevel": "guest",
+      "firstName": "Lessie",
+      "lastName": "Potter",
+      "email": "lessie@potter.net"
+    },
+    {
+      "id": 11,
+      "isActive": true,
+      "accessLevel": "guest",
+      "firstName": "Roberta",
+      "lastName": "Leon",
+      "email": "roberta@leon.us"
+    },
+    {
+      "id": 12,
+      "isActive": true,
+      "accessLevel": "guest",
+      "firstName": "Reyes",
+      "lastName": "Stewart",
+      "email": "reyes@stewart.io"
+    },
+    {
+      "id": 13,
+      "isActive": true,
+      "accessLevel": "guest",
+      "firstName": "Lawanda",
+      "lastName": "Knapp",
+      "email": "lawanda@knapp.co.uk"
+    },
+    {
+      "id": 14,
+      "isActive": false,
+      "accessLevel": "admin",
+      "firstName": "Ford",
+      "lastName": "Ward",
+      "email": "ford@ward.tv"
+    },
+    {
+      "id": 15,
+      "isActive": true,
+      "accessLevel": "admin",
+      "firstName": "Earnestine",
+      "lastName": "Garrett",
+      "email": "earnestine@garrett.org"
+    },
+    {
+      "id": 16,
+      "isActive": true,
+      "accessLevel": "user",
+      "firstName": "Emerson",
+      "lastName": "Conway",
+      "email": "emerson@conway.name"
+    },
+    {
+      "id": 17,
+      "isActive": false,
+      "accessLevel": "user",
+      "firstName": "Minerva",
+      "lastName": "Klein",
+      "email": "minerva@klein.me"
+    },
+    {
+      "id": 18,
+      "isActive": true,
+      "accessLevel": "admin",
+      "firstName": "Hopkins",
+      "lastName": "Harvey",
+      "email": "hopkins@harvey.biz"
+    },
+    {
+      "id": 19,
+      "isActive": true,
+      "accessLevel": "guest",
+      "firstName": "Vargas",
+      "lastName": "Casey",
+      "email": "vargas@casey.info"
+    }
+  ]
+}
