@@ -41,7 +41,7 @@ export default {
   },
 
   created() {
-    setInterval(() => this.fetchUsers(), 1000);
+    setTimeout(() => this.fetchUsers(), 1000);
   }
 };
 </script>

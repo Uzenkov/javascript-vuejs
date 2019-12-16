@@ -38,7 +38,7 @@ export default {
   },
 
   created() {
-    setInterval(() => this.getUser(this.$route.params.id), 1000);
+    setTimeout(() => this.getUser(this.$route.params.id), 1000);
   }
 };
 </script>
