@@ -16,7 +16,11 @@ const routes = [
     component: Users
   },
   {
-    path: "/users/:id",
+    path: "/users/create",
+    component: () => import("@/modules/users/pages/UserCreatePage.vue")
+  },
+  {
+    path: "/users/:id/edit",
     component: () => import("@/modules/users/pages/UserEditPage.vue")
   }
 ];

@@ -4,7 +4,7 @@
       <label for="lastName">Фамилия</label>
       <input
         id="lastName"
-        v-model="user.lastName"
+        v-model="localUser.lastName"
         type="text"
         class="form-control"
       />
@@ -13,7 +13,7 @@
       <label for="firstName">Имя</label>
       <input
         id="firstName"
-        v-model="user.firstName"
+        v-model="localUser.firstName"
         type="text"
         class="form-control"
       />
@@ -22,7 +22,7 @@
       <label for="email">Эл. почта</label>
       <input
         id="email"
-        v-model="user.email"
+        v-model="localUser.email"
         type="email"
         class="form-control"
       />
@@ -30,41 +30,50 @@
     <div class="form-group form-check">
       <input
         id="isActive"
-        v-model="user.isActive"
+        v-model="localUser.isActive"
         type="checkbox"
         class="form-check-input"
       />
       <label class="form-check-label" for="isActive">Активен</label>
     </div>
-    <button type="submit" class="btn btn-primary" @click.prevent="updateUser">
-      Обновить
-    </button>
+    <slot />
   </form>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
-  name: "UserEditForm",
+  name: "UserForm",
+
+  model: {
+    prop: "user",
+    event: "input"
+  },
 
   props: {
     user: {
-      type: Object,
+      type: null, // так можно? или в родителе вместо user: null => user: {}?
       required: true
     }
   },
 
+  data: () => ({
+    localUser: null
+  }),
+
+  watch: {
+    localUser: {
+      deep: true,
+      handler: "update"
+    }
+  },
+
+  created() {
+    this.localUser = Object.assign({}, this.user);
+  },
+
   methods: {
-    updateUser() {
-      axios
-        .patch("http://localhost:8000/users/" + this.user.id, this.user)
-        .then(() => {
-          alert("Обновлено");
-        })
-        .catch(() => {
-          alert("Ошибка обновления");
-        });
+    update() {
+      this.$emit("input", this.localUser);
     }
   }
 };

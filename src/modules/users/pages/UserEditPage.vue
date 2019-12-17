@@ -10,36 +10,50 @@
     <div v-if="!user" class="alert alert-warning">
       Загрузка…
     </div>
-    <div v-else>
-      <user-edit-form :user="user" />
-    </div>
+    <user-form v-else v-model="user">
+      <button type="submit" class="btn btn-primary" @click.prevent="updateUser">
+        Обновить
+      </button>
+    </user-form>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import UserEditForm from "../components/UserEditForm";
+import UserForm from "@/modules/users/components/UserForm.vue";
 
 export default {
   name: "UserEditPage",
 
   components: {
-    UserEditForm
+    UserForm
   },
 
   data: () => ({
     user: null
   }),
 
+  computed: {
+    userID: vm => vm.$route.params.id
+  },
+
   created() {
-    setTimeout(() => this.getUser(this.$route.params.id), 500);
+    this.getUser();
   },
 
   methods: {
-    getUser(id) {
+    getUser() {
       axios
-        .get("http://localhost:8000/users/" + id)
+        .get("http://localhost:8000/users/" + this.userID)
         .then(({ data }) => (this.user = data))
+        .catch(error => {
+          throw error;
+        });
+    },
+    updateUser() {
+      axios
+        .patch("http://localhost:8000/users/" + this.userID, this.user)
+        .then(() => this.$router.push("/users"))
         .catch(error => {
           throw error;
         });

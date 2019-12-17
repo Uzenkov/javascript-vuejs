@@ -6,6 +6,9 @@
       <h1 class="h2">
         Пользователи <sup>{{ users.length }}</sup>
       </h1>
+      <button class="btn btn-success" @click.prevent="createNewUser">
+        Создать нового пользователя
+      </button>
     </div>
     <div v-if="!users.length" class="alert alert-warning">
       Загрузка…
@@ -16,7 +19,7 @@
 
 <script>
 import axios from "axios";
-import UserList from "../components/UserList.vue";
+import UserList from "@/modules/users/components/UserList.vue";
 
 export default {
   name: "UsersPage",
@@ -30,7 +33,7 @@ export default {
   }),
 
   created() {
-    setTimeout(() => this.fetchUsers(), 500);
+    this.fetchUsers();
   },
 
   methods: {
@@ -41,6 +44,9 @@ export default {
         .catch(error => {
           throw error;
         });
+    },
+    createNewUser() {
+      this.$router.push("/users/create");
     }
   }
 };

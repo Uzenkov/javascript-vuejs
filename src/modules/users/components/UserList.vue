@@ -51,7 +51,7 @@ export default {
 
   methods: {
     editUser(id) {
-      this.$router.push(`/users/${id}`);
+      this.$router.push(`/users/${id}/edit`);
     }
   }
 };
