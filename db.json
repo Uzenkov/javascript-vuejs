@@ -1,25 +1,9 @@
 {
   "users": [
     {
-      "id": 0,
-      "isActive": true,
-      "accessLevel": "user",
-      "firstName": "Cherry",
-      "lastName": "Mejia",
-      "email": "cherry@mejia.io"
-    },
-    {
-      "id": 1,
-      "isActive": false,
-      "accessLevel": "user",
-      "firstName": "Elena",
-      "lastName": "Rojas",
-      "email": "elena@rojas.co.uk"
-    },
-    {
       "id": 2,
       "isActive": false,
-      "accessLevel": "user",
+      "accessLevel": "admin",
       "firstName": "Gabrielle",
       "lastName": "Jensen",
       "email": "gabrielle@jensen.tv"
@@ -151,14 +135,6 @@
       "firstName": "Hopkins",
       "lastName": "Harvey",
       "email": "hopkins@harvey.biz"
-    },
-    {
-      "id": 19,
-      "isActive": true,
-      "accessLevel": "guest",
-      "firstName": "Vargas",
-      "lastName": "Casey",
-      "email": "vargas@casey.info"
     }
   ]
 }

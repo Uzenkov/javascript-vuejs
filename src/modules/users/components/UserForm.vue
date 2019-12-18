@@ -1,6 +1,23 @@
 <template>
   <form>
     <div class="form-group">
+      <label for="accessLevel">Уровень доступа</label>
+      <select
+        id="accessLevel"
+        v-model="localUser.accessLevel"
+        class="form-control"
+      >
+        <option disabled value="">Выберите уровень доступа</option>
+        <option
+          v-for="(level, index) of accessLevels"
+          :key="index"
+          :selected="localUser.accessLevel === level"
+        >
+          {{ level }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
       <label for="lastName">Фамилия</label>
       <input
         id="lastName"
@@ -51,13 +68,14 @@ export default {
 
   props: {
     user: {
-      type: null, // так можно? или в родителе вместо user: null => user: {}?
+      type: Object,
       required: true
     }
   },
 
   data: () => ({
-    localUser: null
+    localUser: null,
+    accessLevels: ["guest", "user", "admin"]
   }),
 
   watch: {

@@ -6,9 +6,6 @@
       <h1 class="h2">
         Пользователи <sup>{{ users.length }}</sup>
       </h1>
-      <button class="btn btn-success" @click.prevent="createNewUser">
-        Создать нового пользователя
-      </button>
     </div>
     <div v-if="!users.length" class="alert alert-warning">
       Загрузка…
@@ -44,9 +41,6 @@ export default {
         .catch(error => {
           throw error;
         });
-    },
-    createNewUser() {
-      this.$router.push("/users/create");
     }
   }
 };

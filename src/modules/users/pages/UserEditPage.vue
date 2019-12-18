@@ -14,6 +14,9 @@
       <button type="submit" class="btn btn-primary" @click.prevent="updateUser">
         Обновить
       </button>
+      <button type="button" class="btn btn-danger" @click.prevent="deleteUser">
+        Удалить
+      </button>
     </user-form>
   </div>
 </template>
@@ -53,6 +56,14 @@ export default {
     updateUser() {
       axios
         .patch("http://localhost:8000/users/" + this.userID, this.user)
+        .then(() => this.$router.push("/users"))
+        .catch(error => {
+          throw error;
+        });
+    },
+    deleteUser() {
+      axios
+        .delete("http://localhost:8000/users/" + this.userID)
         .then(() => this.$router.push("/users"))
         .catch(error => {
           throw error;

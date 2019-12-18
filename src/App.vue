@@ -4,9 +4,14 @@
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <router-link class="navbar-brand" to="/">Learn Vue.js</router-link>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" :class="{ active: $route.path == '/users' }">
+          <li class="nav-item">
             <router-link class="nav-link" to="/users">
               Пользователи
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/users/create">
+              Новый пользователь
             </router-link>
           </li>
         </ul>
