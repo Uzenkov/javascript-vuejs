@@ -41,11 +41,10 @@
         </tr>
       </tbody>
     </table>
-
     <nav>
       <ul class="pagination">
         <li
-          v-for="(paination, index) of totalPages"
+          v-for="(pagination, index) of totalPages"
           :key="index"
           class="page-item"
           :class="{ active: currentPage === index }"
