@@ -8,11 +8,7 @@
         class="form-control"
       >
         <option disabled value="">Выберите уровень доступа</option>
-        <option
-          v-for="(level, index) of accessLevels"
-          :key="index"
-          :selected="localUser.accessLevel === level"
-        >
+        <option v-for="(level, index) of accessLevels" :key="index">
           {{ level }}
         </option>
       </select>
