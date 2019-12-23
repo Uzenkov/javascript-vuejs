@@ -4,20 +4,13 @@
       class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
     >
       <h1 class="h2">
-        Редактирование пользователя
+        Пользователь
       </h1>
     </div>
     <div v-if="!user" class="alert alert-warning">
       Загрузка…
     </div>
-    <UserForm v-else v-model="user">
-      <button type="submit" class="btn btn-primary" @click.prevent="updateUser">
-        Обновить
-      </button>
-      <button type="button" class="btn btn-danger" @click.prevent="deleteUser">
-        Удалить
-      </button>
-    </UserForm>
+    <UserForm v-else v-model="user" :readonly="true" />
   </div>
 </template>
 
@@ -26,7 +19,7 @@ import axios from "axios";
 import UserForm from "@/modules/users/components/UserForm.vue";
 
 export default {
-  name: "UserEditPage",
+  name: "UserShowPage",
 
   components: {
     UserForm

@@ -7,11 +7,11 @@
         Добавить пользователя
       </h1>
     </div>
-    <user-form v-model="user">
+    <UserForm v-model="user">
       <button type="submit" class="btn btn-primary" @click.prevent="createUser">
         Добавить
       </button>
-    </user-form>
+    </UserForm>
   </div>
 </template>
 

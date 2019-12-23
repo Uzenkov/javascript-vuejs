@@ -57,6 +57,14 @@
 export default {
   name: "UserForm",
 
+  directives: {
+    disabled: {
+      inserted(el) {
+        el.disabled = true;
+      }
+    }
+  },
+
   model: {
     prop: "user",
     event: "input"
@@ -66,6 +74,11 @@ export default {
     user: {
       type: Object,
       required: true
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
 
@@ -82,6 +95,14 @@ export default {
   },
 
   created() {
+    // this.$nextTick(() => {
+    //   let inputs, index;
+    //   inputs = document.getElementsByTagName("input");
+    //   for (index = 0; index < inputs.length; ++index) {
+    //     inputs[index].disabled = true;
+    //   }
+    // });
+
     this.localUser = Object.assign({}, this.user);
   },
 

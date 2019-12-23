@@ -10,7 +10,7 @@
     <div v-if="!users.length" class="alert alert-warning">
       Загрузка…
     </div>
-    <user-list v-else :users="users" />
+    <UserList v-else :users="users" />
   </div>
 </template>
 

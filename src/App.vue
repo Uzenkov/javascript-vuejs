@@ -2,17 +2,17 @@
   <div>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <router-link class="navbar-brand" to="/">Learn Vue.js</router-link>
+        <RouterLink class="navbar-brand" to="/">Learn Vue.js</RouterLink>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <router-link class="nav-link" to="/users">
+            <RouterLink class="nav-link" to="/users">
               Пользователи
-            </router-link>
+            </RouterLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/users/create">
+            <RouterLink class="nav-link" to="/users/create">
               Новый пользователь
-            </router-link>
+            </RouterLink>
           </li>
         </ul>
       </nav>
@@ -21,7 +21,7 @@
     <div class="container-fluid">
       <div class="row">
         <main role="main" class="col-md-12 ml-sm-auto ">
-          <router-view />
+          <RouterView />
         </main>
       </div>
     </div>
