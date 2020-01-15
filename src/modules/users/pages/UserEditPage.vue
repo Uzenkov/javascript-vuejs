@@ -17,6 +17,9 @@
       <button type="button" class="btn btn-danger" @click.prevent="deleteUser">
         Удалить
       </button>
+      <button class="btn btn-warning" @click.prevent="cancelEdit">
+        Отмена
+      </button>
     </UserForm>
   </div>
 </template>
@@ -33,7 +36,8 @@ export default {
   },
 
   data: () => ({
-    user: null
+    user: null,
+    _cloneUser: null
   }),
 
   computed: {
@@ -48,7 +52,10 @@ export default {
     getUser() {
       axios
         .get("http://localhost:8000/users/" + this.userID)
-        .then(({ data }) => (this.user = data))
+        .then(({ data }) => {
+          this.user = data;
+          this._cloneUser = data;
+        })
         .catch(error => {
           throw error;
         });
@@ -68,6 +75,9 @@ export default {
         .catch(error => {
           throw error;
         });
+    },
+    cancelEdit() {
+      this.user = Object.assign({}, this._cloneUser);
     }
   }
 };
