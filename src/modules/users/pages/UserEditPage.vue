@@ -17,7 +17,7 @@
       <button type="button" class="btn btn-danger" @click.prevent="deleteUser">
         Удалить
       </button>
-      <button class="btn btn-warning" @click.prevent="cancelEdit">
+      <button type="button" class="btn btn-warning" @click.prevent="cancelEdit">
         Отмена
       </button>
     </UserForm>
